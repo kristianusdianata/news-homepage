@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | News homepage</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <!-- Script -->
+    <script src="./script/index.js" type="module"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <a class="header__logo" href="#">
+          <img src="./assets/images/logo.svg" alt="Website logo" />
+        </a>
+        <nav class="header__navbar">
+          <button
+            class="header__navbar-toggler"
+            aria-expanded="false"
+            aria-controls="navbarSupportedContent"
+            aria-label="Toggle navigation"
+          >
+            <img
+              src="./assets/images/icon-menu.svg"
+              alt=""
+              aria-hidden="true"
+            />
+          </button>
+
+          <div class="header__navbar-collapse" id="navbarSupportedContent">
+            <ul class="header__navbar-nav">
+              <li class="header__navbar-item"><a href="#">Home</a></li>
+              <li class="header__navbar-item"><a href="#">New</a></li>
+              <li class="header__navbar-item"><a href="#">Popular</a></li>
+              <li class="header__navbar-item"><a href="#">Trending</a></li>
+              <li class="header__navbar-item"><a href="#">Categories</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Hero -->
+        <section class="hero">
+          <picture class="hero__image">
+            <source
+              media="(min-width:600px)"
+              srcset="./assets/images/image-web-3-desktop.jpg"
+            />
+            <img
+              src="./assets/images/image-web-3-mobile.jpg"
+              alt="Abstract colorful blocks illustration"
+            />
+          </picture>
+          <div class="hero__content">
+            <h1 class="hero__content-title">The Bright Future of Web 3.0?</h1>
+            <p class="hero__content-desc">
+              We dive into the next evolution of the web that claims to put the
+              power of the platforms back into the hands of the people. But is
+              it really fulfilling its promise?
+            </p>
+            <a href="#" class="hero__content-cta">Read More</a>
+          </div>
+        </section>
+
+        <!-- Sidebar / New -->
+        <aside class="new">
+          <h2 class="new__title">new</h2>
+          <article class="new__article">
+            <h3 class="new__article-title">
+              <a href="#">Hydrogen VS Electric Cars</a>
+            </h3>
+            <p class="new__article-desc">
+              Will hydrogen-fueled cars ever catch up to EVs?
+            </p>
+          </article>
+          <article class="new__article">
+            <h3 class="new__article-title">
+              <a href="#">The Downsides of AI Artistry</a>
+            </h3>
+            <p class="new__article-desc">
+              What are the possible adverse effects of on-demand AI image
+              generation?
+            </p>
+          </article>
+          <article class="new__article">
+            <h3 class="new__article-title">
+              <a href="#">Is VC Funding Drying Up?</a>
+            </h3>
+            <p class="new__article-desc">
+              Private funding by VC firms is down 50% YOY. We take a look at
+              what that means.
+            </p>
+          </article>
+        </aside>
+
+        <!-- Trending / Popular -->
+        <section class="popular">
+          <h2 class="sr-only">popular</h2>
+          <ol class="popular__list-group">
+            <li class="popular__list-item">
+              <article class="popular__article">
+                <img
+                  src="assets/images/image-retro-pcs.jpg"
+                  alt="Retro PCs"
+                  class="popular__article-img"
+                />
+                <div class="popular__article-content">
+                  <span class="popular__article-number">01</span>
+                  <h3 class="popular__article-title">
+                    <a href="#">Reviving Retro PCs</a>
+                  </h3>
+                  <p class="popular__article-desc">
+                    What happens when old PCs are given modern upgrades?
+                  </p>
+                </div>
+              </article>
+            </li>
+            <li class="popular__list-item">
+              <article class="popular__article">
+                <img
+                  src="assets/images/image-top-laptops.jpg"
+                  alt="Top laptops of 2022"
+                  class="popular__article-img"
+                />
+                <div class="popular__article-content">
+                  <span class="popular__article-number">02</span>
+                  <h3 class="popular__article-title">
+                    <a href="#">Top 10 Laptops of 2022</a>
+                  </h3>
+                  <p class="popular__article-desc">
+                    Our best picks for various needs and budgets.
+                  </p>
+                </div>
+              </article>
+            </li>
+            <li class="popular__list-item">
+              <article class="popular__article">
+                <img
+                  src="assets/images/image-gaming-growth.jpg"
+                  alt="Gaming growth"
+                  class="popular__article-img"
+                />
+                <div class="popular__article-content">
+                  <span class="popular__article-number">03</span>
+                  <h3 class="popular__article-title">
+                    <a href="#">The Growth of Gaming</a>
+                  </h3>
+                  <p class="popular__article-desc">
+                    How the pandemic has sparked fresh opportunities.
+                  </p>
+                </div>
+              </article>
+            </li>
+          </ol>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+@use "../abstracts/index" as *;
+
+:root {
+  @each $name, $color in $colors {
+    --#{"" + $name}: #{$color};
+  }
+}
+
+html {
+  font-size: px-to-percent();
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: var(--green-200);
+  font-weight: 400;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  background: none;
+}
+
+button {
+  border: none;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+  outline: none;
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  outline: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
+}
+input[type="radio"],
+input[type="checkbox"] {
+  appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+textarea {
+  outline: transparent;
+  border: none;
+  background: none;
+  resize: none;
+}

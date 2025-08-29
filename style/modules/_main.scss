@@ -1,0 +1,227 @@
+@use "sass:map";
+@use "../abstracts/index" as *;
+
+main {
+  @include media-query-md() {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+
+  @include media-query-lg() {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+}
+
+.hero {
+  margin-block-end: map.get($spacing, 16);
+
+  &__image {
+    img {
+      @include media-query-md() {
+        block-size: auto;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: map.get($spacing, 5);
+    margin-block-start: map.get($spacing, 6);
+
+    @include media-query-sm() {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: map.get($spacing, 4);
+    }
+
+    @include media-query-md() {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include media-query-lg() {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: map.get($spacing, 4);
+    }
+
+    &-title {
+      @include font-style(
+        $color: var(--very-dark-blue),
+        $font-weight: 800,
+        $font-size: map.get($fontSize, fs-9),
+        $line-height: 1
+      );
+      @include line-clamp(3);
+
+      @include media-query-sm() {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+      }
+    }
+
+    &-desc {
+      @include font-style(
+        $color: var(--dark-grayish-blue),
+        $font-size: map.get($fontSize, fs-3),
+        $line-height: 1.5
+      );
+      @include line-clamp(5);
+
+      @include media-query-sm() {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+
+    &-cta {
+      padding: map.get($spacing, 4) map.get($spacing, 8);
+      background-color: var(--soft-red);
+      align-self: flex-start;
+      text-align: center;
+      @include font-style(
+        $color: var(--very-dark-blue),
+        $font-size: map.get($fontSize, fs-3),
+        $letter-spacing: 3px,
+        $font-weight: 800,
+        $text-transform: uppercase
+      );
+
+      &:hover {
+        background-color: var(--very-dark-blue);
+        color: var(--off-white);
+      }
+
+      @include media-query-sm() {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: start;
+      }
+    }
+  }
+}
+
+.new {
+  background-color: var(--very-dark-blue);
+  padding: map.get($spacing, 6);
+  margin-block-end: map.get($spacing, 16);
+
+  &__title {
+    @include font-style(
+      $color: var(--soft-orange),
+      $font-weight: 700,
+      $font-size: map.get($fontSize, fs-7),
+      $text-transform: capitalize,
+      $letter-spacing: 1px
+    );
+  }
+
+  &__article {
+    padding-block: map.get($spacing, 8);
+    display: flex;
+    flex-direction: column;
+    row-gap: map.get($spacing, 4);
+
+    &:not(:nth-last-of-type(1)) {
+      border-block-end: 1px solid var(--dark-grayish-blue);
+    }
+
+    &:nth-last-of-type(1) {
+      padding-block-end: 0px;
+    }
+
+    &-title {
+      @include font-style(
+        $color: var(--off-white),
+        $font-size: map.get($fontSize, fs-4)
+      );
+      @include line-clamp(2);
+
+      &:hover {
+        color: var(--soft-orange);
+      }
+    }
+
+    &-desc {
+      @include font-style(
+        $color: var(--dark-grayish-blue),
+        $font-size: map.get($fontSize, fs-3),
+        $line-height: 1.5
+      );
+      @include line-clamp(3);
+    }
+  }
+}
+
+.popular {
+  @include media-query-md() {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+
+  &__list-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: map.get($spacing, 8);
+
+    @include media-query-sm() {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: map.get($spacing, 5);
+    }
+
+    @include media-query-lg() {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: map.get($spacing, 5);
+    }
+  }
+
+  &__article {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    column-gap: map.get($spacing, 4);
+    block-size: 100%;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: map.get($spacing, 2);
+    }
+
+    &-number {
+      @include font-style(
+        $color: var(--soft-red),
+        $font-size: map.get($fontSize, fs-7),
+        $font-weight: 800,
+        $letter-spacing: 1px
+      );
+    }
+
+    &-title {
+      @include font-style(
+        $color: var(--very-dark-blue),
+        $font-size: map.get($fontSize, fs-4),
+        $font-weight: 800
+      );
+      @include line-clamp(2);
+
+      &:hover {
+        color: var(--soft-red);
+      }
+    }
+
+    &-desc {
+      @include font-style(
+        $color: var(--dark-grayish-blue),
+        $font-size: map.get($fontSize, fs-3),
+        $line-height: 1.5
+      );
+      @include line-clamp(2);
+    }
+  }
+}

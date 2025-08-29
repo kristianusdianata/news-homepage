@@ -1,0 +1,93 @@
+@use "sass:map";
+@use "../abstracts/index" as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: map.get($spacing, 8);
+
+  &__logo {
+    inline-size: px-to-rem(50px);
+    block-size: px-to-rem(50px);
+  }
+
+  &__navbar {
+    &-toggler {
+      position: relative;
+      z-index: 2;
+
+      @include media-query-sm() {
+        display: none;
+      }
+    }
+
+    &-collapse {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -9999;
+      opacity: 0;
+
+      &--show {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      @include media-query-sm() {
+        position: relative;
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+
+    &-nav {
+      display: flex;
+      flex-direction: column;
+      row-gap: map.get($spacing, 6);
+      background-color: var(--off-white);
+      block-size: 100%;
+      inline-size: px-to-rem(250px);
+      padding: map.get($spacing, 8);
+      padding-block-start: px-to-em(150px);
+      transform: translateX(px-to-rem(260px));
+      transition: transform 0.5s ease-in-out;
+
+      &--show {
+        transform: translateX(0px);
+        transition: transform 0.5s ease-in-out;
+      }
+
+      @include media-query-sm() {
+        flex-direction: row;
+        padding: 0px;
+        inline-size: auto;
+        column-gap: map.get($spacing, 4);
+        transform: none;
+        transition: none;
+      }
+    }
+
+    &-item {
+      @include font-style(
+        $color: var(--very-dark-blue),
+        $text-transform: capitalize,
+        $font-size: map.get($fontSize, fs-4)
+      );
+
+      &:hover {
+        color: var(--soft-red);
+      }
+
+      @include media-query-sm() {
+        font-size: map.get($fontSize, fs-3);
+      }
+    }
+  }
+}

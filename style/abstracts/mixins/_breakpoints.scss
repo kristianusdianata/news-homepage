@@ -1,0 +1,49 @@
+@use "sass:map";
+@use "../functions/index" as *;
+
+$breakPoints: (
+  sm: 600px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin media-query-sm() {
+  @at-root {
+    @media (min-width: map.get($breakPoints, sm)) {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-query-md() {
+  @at-root {
+    @media (min-width: map.get($breakPoints, md)) {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-query-lg() {
+  @at-root {
+    @media (min-width: map.get($breakPoints, lg)) {
+      & {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin media-query-xl() {
+  @at-root {
+    @media (min-width: map.get($breakPoints, xl)) {
+      & {
+        @content;
+      }
+    }
+  }
+}

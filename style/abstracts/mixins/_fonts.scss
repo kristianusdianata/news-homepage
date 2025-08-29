@@ -1,0 +1,40 @@
+@use "sass:map";
+@use "./breakpoints" as *;
+
+$fontSize: (
+  fs-1: 0.694rem,
+  fs-2: 0.833rem,
+  fs-3: 1rem,
+  fs-4: 1.2rem,
+  fs-5: 1.44rem,
+  fs-6: 1.728rem,
+  fs-7: 2.074rem,
+  fs-8: 2.488rem,
+  fs-9: 2.986rem,
+);
+
+@function font-color($color) {
+  @if ($color != "") {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+@mixin font-style(
+  $color: "",
+  $letter-spacing: 0,
+  $line-height: inherit,
+  $font-weight: 400,
+  $text-transform: none,
+  $font-size: map.get($fontSize, fs-1)
+) {
+  font-size: $font-size;
+  letter-spacing: $letter-spacing;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  text-transform: $text-transform;
+  @if (font-color($color)) {
+    color: $color;
+  }
+}
